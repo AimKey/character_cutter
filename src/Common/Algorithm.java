@@ -2,7 +2,6 @@ package Common;
 
 import Model.Word;
 import Model.Words;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Algorithm {
@@ -10,9 +9,10 @@ public class Algorithm {
     StringTokenizer tokenizer;
 
     public String[] getWordsInString(String input) {
-        tokenizer = new StringTokenizer(input, " !@#$%^&*_+{};':<>?,./");
+        tokenizer = new StringTokenizer(input, " !@#$%^&*()_-=_;':+{};':<>?,./");
         String[] result = new String[tokenizer.countTokens()];
         int i = 0;
+        
         while (tokenizer.hasMoreTokens()) {
             result[i] = tokenizer.nextToken();
             i++;
@@ -21,8 +21,7 @@ public class Algorithm {
     }
     
     public String[] getCharInString (String input) {
-        String[] temp = null;
-        temp = String.join("", input.split("[\\s!@#$%^&*()_+={}\\[\\]:;<>,.?~\\\\/-]+")).split("");
+        String[] temp = String.join("", input.split("[\\s!@#$%^&*()_+={}\\[\\]:;<>,.?~\\\\/-]+")).split("");
         return temp;
     }
     
@@ -41,16 +40,4 @@ public class Algorithm {
         }
         return res;
     }
-    
-    public int[] countChars(String input) {
-        int[] charCount = new int[128];
-
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            charCount[c]++;
-        }
-        return charCount;
-        
-    }
-
 }

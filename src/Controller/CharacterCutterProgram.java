@@ -4,7 +4,6 @@ import Common.Algorithm;
 import Common.Library;
 import Model.Words;
 import View.Menu;
-import java.util.Arrays;
 
 public class CharacterCutterProgram extends Menu {
 
