@@ -17,32 +17,32 @@ public class Algorithm {
             result[i] = tokenizer.nextToken();
             i++;
         }
-        Arrays.sort(result);
         return result;
     }
-
-    public Words countWords(Words words) {
-        Words temp = new Words();
+    
+    public String[] getCharInString (String input) {
+        String[] temp = null;
+        temp = String.join("", input.split("[\\s!@#$%^&*()_+={}\\[\\]:;<>,.?~\\\\/-]+")).split("");
+        return temp;
+    }
+    
+    public Words countWordsPlus(Words words) {
+        Words res = new Words();
         for (Word word : words) {
-            if (temp.isEmpty()) {
-                temp.add(word);
-            }
-            if (temp.isExist(word) == false) {
-                temp.add(word);
-            }
+            if (res.isEmpty()) res.add(word);
+            if (!res.contains(word)) res.add(word);
         }
-        for (Word t : temp) {
+        for (Word t : res) {
             for (Word w : words) {
-                if (t.getWord().equals(w.getWord())) {
+                if (t.equals(w)) {
                     t.addCount();
                 }
             }
         }
-        return temp;
+        return res;
     }
     
     public int[] countChars(String input) {
-            
         int[] charCount = new int[128];
 
         for (int i = 0; i < input.length(); i++) {

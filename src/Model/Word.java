@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.Objects;
+
 /**
  *
  * @author phamm
@@ -53,6 +55,19 @@ public class Word implements Comparable<Word> {
         return this.word.compareTo(o.word);
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Word other = (Word) obj;
+        return Objects.equals(this.word, other.word);
+    }
 
 }

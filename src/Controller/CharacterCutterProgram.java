@@ -15,7 +15,6 @@ public class CharacterCutterProgram extends Menu {
 
     public CharacterCutterProgram(String s) {
         super(new String[]{"Count words", "Count characters", "Exit"}, "Character cutter");
-        words = new Words();
         lb = new Library();
         algo = new Algorithm();
         str = s;
@@ -40,20 +39,18 @@ public class CharacterCutterProgram extends Menu {
     }
 
     public void doCut() {
+        words = new Words();
         String[] test = algo.getWordsInString(str);
         words.addAllStrings(test);
-        Words result = algo.countWords(words);
+        Words result = algo.countWordsPlus(words);
         System.out.println("Result: " + result);
     }
 
     public void doCount() {
-        String temp = String.join("", str.split("[\\s!@#$%^&*()_+-=]+"));
-        int[] charCount = algo.countChars(temp);
-        for (int i = 0; i < charCount.length; i++) {
-            if (charCount[i] > 0) {
-                System.out.print((char) i + "= " + charCount[i] + ", ");
-            }
-        }
-        System.out.println();
+        words = new Words();
+        String[] test = algo.getCharInString(str);
+        words.addAllStrings(test);
+        Words result = algo.countWordsPlus(words);
+        System.out.println("Result: " + result);
     }
 }
