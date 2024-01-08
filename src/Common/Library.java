@@ -14,16 +14,7 @@ public class Library {
     
     public String getString(String td) {
         Scanner sc = new Scanner(System.in);
-        System.out.println(td + ": ");
+        System.out.print(td + ": ");
         return sc.nextLine();
-    }
-
-    public int[] createRandomArray(int arrSize) {
-        int[] temp = new int[arrSize];
-        Random rd = new Random();
-        for (int i = 0; i < arrSize; i++) {
-            temp[i] = rd.nextInt(100);
-        }
-        return temp;
     }
 }
